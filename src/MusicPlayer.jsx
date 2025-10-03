@@ -29,18 +29,15 @@ export default function MusicPlayer() {
 
   const audio = audioRef.current;
 
-  // Şarkıyı çal / devam et
   const playSong = (id) => {
     const song = songs.find((song) => song.id === id);
 
     if (currentSong?.id === song.id) {
-      // Aynı şarkıysa kaldığı yerden devam et
       audio.play();
       albumImgRef.current.classList.add("spinning");
       return;
     }
 
-    // Farklı şarkıya geçiş
     audio.src = song.src;
     audio.title = song.title;
     audio.currentTime = 0;
